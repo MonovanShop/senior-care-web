@@ -1,40 +1,9 @@
 import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import { useState } from "react";
-import { toast } from "sonner";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Validación básica
-    if (!formData.name || !formData.phone || !formData.message) {
-      toast.error("Por favor completa todos los campos requeridos");
-      return;
-    }
-
-    // Crear mensaje para WhatsApp
-    const whatsappMessage = `Hola! Me gustaría solicitar información sobre sus servicios.%0A%0ANombre: ${formData.name}%0AEmail: ${formData.email}%0ATeléfono: ${formData.phone}%0AMensaje: ${formData.message}`;
-    const whatsappUrl = `https://wa.me/525575210273?text=${whatsappMessage}`;
-    
-    window.open(whatsappUrl, "_blank");
-    toast.success("Redirigiendo a WhatsApp...");
-    
-    // Limpiar formulario
-    setFormData({ name: "", email: "", phone: "", message: "" });
-  };
-
   const contactInfo = [
     {
       icon: Phone,
@@ -45,13 +14,13 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      info: "contacto@cuidarte.com",
-      link: "mailto:contacto@cuidarte.com",
+      info: "Pendiente",
+      link: "#",
     },
     {
       icon: MapPin,
       title: "Ubicación",
-      info: "Ciudad de México",
+      info: "Servicio a domicilio – nuestras cuidadoras y enfermeras van directamente al hogar del paciente.",
       link: "#",
     },
     {
@@ -79,64 +48,7 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <Card className="border-2">
-              <CardHeader>
-                <h3 className="text-2xl font-bold">Envíanos un Mensaje</h3>
-                <p className="text-muted-foreground">
-                  Completa el formulario y nos pondremos en contacto contigo.
-                </p>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <Input
-                      placeholder="Nombre completo *"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <Input
-                      type="email"
-                      placeholder="Email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    />
-                  </div>
-                  <div>
-                    <Input
-                      type="tel"
-                      placeholder="Teléfono *"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <Textarea
-                      placeholder="Cuéntanos sobre tus necesidades *"
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      rows={5}
-                      required
-                    />
-                  </div>
-                  <Button type="submit" className="w-full bg-primary hover:bg-primary-hover">
-                    Enviar Mensaje
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </motion.div>
-
+        <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -183,7 +95,7 @@ const Contact = () => {
                   Llámanos o envíanos un WhatsApp y te responderemos de inmediato.
                 </p>
                 <Button
-                  onClick={() => window.open("https://wa.me/525575210273", "_blank")}
+                  onClick={() => window.open("https://wa.me/525575210273?text=Hola%2C%20estoy%20interesado(a)%20en%20los%20servicios%20de%20cuidado%20de%20Jáalil%20Care.%20¿Me%20pueden%20dar%20más%20información%2C%20por%20favor%3F", "_blank")}
                   className="w-full bg-secondary hover:bg-secondary-hover"
                 >
                   Contactar por WhatsApp

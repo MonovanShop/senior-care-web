@@ -10,10 +10,10 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <Heart className="h-8 w-8 text-primary fill-primary" />
-              <span className="text-2xl font-bold">CuidArte</span>
+              <span className="text-2xl font-bold">Jáalil Care</span>
             </div>
             <p className="text-muted-foreground">
-              Cuidado profesional con calidez humana para personas mayores.
+              Brindamos servicios especializados de enfermería y cuidado para personas mayores en la comodidad de su hogar. Experiencia, dedicación y empatía en cada servicio. También contamos con aplicación de sueros a domicilio.
             </p>
           </div>
 
@@ -64,23 +64,18 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2 text-muted-foreground">
                 <Mail className="h-4 w-4 text-primary" />
-                <a
-                  href="mailto:contacto@cuidarte.com"
-                  className="hover:text-primary transition-colors"
-                >
-                  contacto@cuidarte.com
-                </a>
+                <span>Pendiente</span>
               </li>
               <li className="flex items-center gap-2 text-muted-foreground">
                 <MapPin className="h-4 w-4 text-primary" />
-                <span>Ciudad de México</span>
+                <span>Servicio a domicilio</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t pt-8 text-center text-muted-foreground">
-          <p>© {currentYear} CuidArte. Todos los derechos reservados.</p>
+          <p>© {currentYear} Jáalil Care. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

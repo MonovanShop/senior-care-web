@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const WhatsAppButton = () => {
   const handleClick = () => {
-    window.open("https://wa.me/525575210273", "_blank");
+    window.open("https://wa.me/525575210273?text=Hola%2C%20estoy%20interesado(a)%20en%20los%20servicios%20de%20cuidado%20de%20Jáalil%20Care.%20¿Me%20pueden%20dar%20más%20información%2C%20por%20favor%3F", "_blank");
   };
 
   return (
