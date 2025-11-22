@@ -1,60 +1,35 @@
 import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Clock, MapPin, Moon, Sun } from "lucide-react";
 
 const Pricing = () => {
-  const packages = [
-    {
-      name: "Básico",
-      price: "350",
-      period: "por día",
-      description: "Ideal para necesidades de cuidado diurno",
-      features: [
-        "Turno de 8 horas diarias",
-        "Acompañamiento y supervisión",
-        "Administración de medicamentos",
-        "Monitoreo de signos vitales",
-        "Reporte diario",
-      ],
-      highlighted: false,
-    },
-    {
-      name: "Profesional",
-      price: "2,100",
-      period: "por semana",
-      description: "El más popular para cuidado continuo",
-      features: [
-        "Cobertura 24/7",
-        "Enfermera titulada",
-        "Todos los servicios básicos",
-        "Atención especializada",
-        "Coordinación con médicos",
-        "Reportes detallados",
-      ],
-      highlighted: true,
-    },
-    {
-      name: "Premium",
-      price: "7,500",
-      period: "por mes",
-      description: "Cuidado integral de largo plazo",
-      features: [
-        "Servicio 24/7 todo el mes",
-        "Equipo rotativo de enfermeras",
-        "Plan personalizado de cuidados",
-        "Terapia y rehabilitación",
-        "Visitas médicas incluidas",
-        "Apoyo familiar y asesoría",
-        "Descuento del 15%",
-      ],
-      highlighted: false,
-    },
-  ];
-
   const scrollToContact = () => {
     document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const priceFactors = [
+    {
+      icon: MapPin,
+      title: "Zona",
+      description: "El precio varía según la ubicación del paciente",
+    },
+    {
+      icon: Clock,
+      title: "Horas de servicio",
+      description: "Se cobra por hora según las necesidades del paciente",
+    },
+    {
+      icon: Moon,
+      title: "Servicio nocturno",
+      description: "El servicio nocturno tiene un costo adicional",
+    },
+    {
+      icon: Sun,
+      title: "Servicio diurno",
+      description: "Tarifa estándar para horario diurno",
+    },
+  ];
 
   return (
     <section id="precios" className="py-20 bg-section-bg">
@@ -68,76 +43,69 @@ const Pricing = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Planes y Precios</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ofrecemos opciones flexibles adaptadas a sus necesidades y presupuesto.
-            Todos los precios incluyen materiales básicos de cuidado.
+            Ofrecemos tarifas flexibles adaptadas a sus necesidades específicas.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {packages.map((pkg, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={pkg.highlighted ? "lg:scale-105" : ""}
-            >
-              <Card
-                className={`h-full relative overflow-hidden ${
-                  pkg.highlighted
-                    ? "border-primary border-2 shadow-xl"
-                    : "border-2 hover:border-primary/20"
-                }`}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="max-w-4xl mx-auto mb-12"
+        >
+          <Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-secondary/5">
+            <CardContent className="p-8 md:p-12 text-center space-y-6">
+              <h3 className="text-3xl font-bold">Precios por Hora</h3>
+              <p className="text-lg text-muted-foreground">
+                Los precios varían según la zona donde se encuentre el paciente y las horas contratadas. 
+                Se cobra por hora, y el servicio nocturno tiene un costo adicional.
+              </p>
+              <Button
+                onClick={scrollToContact}
+                size="lg"
+                className="bg-primary hover:bg-primary-hover"
               >
-                {pkg.highlighted && (
-                  <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-4 py-1 text-sm font-bold">
-                    POPULAR
-                  </div>
-                )}
-                <CardHeader className="text-center pb-8 pt-8">
-                  <h3 className="text-2xl font-bold mb-2">{pkg.name}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">{pkg.description}</p>
-                  <div className="space-y-1">
-                    <div className="text-5xl font-bold text-primary">
-                      ${pkg.price}
+                Solicitar Cotización
+              </Button>
+            </CardContent>
+          </Card>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {priceFactors.map((factor, index) => {
+            const Icon = factor.icon;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className="h-full border-2 hover:border-primary/20 transition-colors">
+                  <CardContent className="p-6 text-center space-y-4">
+                    <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto">
+                      <Icon className="h-7 w-7 text-primary" />
                     </div>
-                    <div className="text-sm text-muted-foreground">{pkg.period}</div>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <ul className="space-y-3">
-                    {pkg.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
-                        <span className="text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button
-                    onClick={scrollToContact}
-                    className={`w-full ${
-                      pkg.highlighted
-                        ? "bg-primary hover:bg-primary-hover"
-                        : "bg-secondary hover:bg-secondary-hover"
-                    }`}
-                  >
-                    Solicitar Información
-                  </Button>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                    <h4 className="font-bold text-lg">{factor.title}</h4>
+                    <p className="text-sm text-muted-foreground">{factor.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
         </div>
 
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
           className="text-center text-muted-foreground mt-12 max-w-3xl mx-auto"
         >
-          * Los precios varían según la zona donde se encuentre el paciente. Se cobra por hora, y el servicio nocturno tiene un costo adicional.
+          * Ofrecemos evaluación gratuita para crear un plan personalizado según sus necesidades 
+          específicas. Contáctanos para obtener una cotización exacta.
         </motion.p>
       </div>
     </section>
