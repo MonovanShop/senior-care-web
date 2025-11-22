@@ -25,6 +25,7 @@ const Hero = () => {
             <p className="text-xl text-muted-foreground max-w-xl">
               Brindamos servicios especializados de enfermería y cuidado para personas mayores
               en la comodidad de su hogar. Experiencia, dedicación y empatía en cada servicio.
+              También contamos con aplicación de sueros a domicilio.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button

@@ -40,7 +40,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Heart className="h-8 w-8 text-primary fill-primary" />
-            <span className="text-2xl font-bold text-foreground">CuidArte</span>
+            <span className="text-2xl font-bold text-foreground">Jáalil Care</span>
           </div>
 
           {/* Desktop Navigation */}

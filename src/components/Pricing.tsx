@@ -137,8 +137,7 @@ const Pricing = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center text-muted-foreground mt-12 max-w-3xl mx-auto"
         >
-          * Los precios pueden variar según la complejidad del caso y servicios adicionales
-          requeridos. Ofrecemos evaluación gratuita para crear un plan personalizado.
+          * Los precios varían según la zona donde se encuentre el paciente. Se cobra por hora, y el servicio nocturno tiene un costo adicional.
         </motion.p>
       </div>
     </section>

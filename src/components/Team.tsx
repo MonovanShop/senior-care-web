@@ -43,7 +43,7 @@ const Team = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Nuestro Equipo</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Profesionales altamente capacitadas con vocación de servicio y años de experiencia
+            Contamos con enfermeras, cuidadoras y doctores altamente capacitados con vocación de servicio y años de experiencia
             en el cuidado de personas mayores.
           </p>
         </motion.div>
